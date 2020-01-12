@@ -1,0 +1,147 @@
+
+<% include admin/headerAdmin %>
+        
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+            <!-- BREADCRUMB-->
+            <section class="au-breadcrumb2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="au-breadcrumb-content">
+                                <div class="au-breadcrumb-left">
+                                    <span class="au-breadcrumb-span">You are here:</span>
+                                    <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                        <li class="list-inline-item active">
+                                            <a href="#">Home</a>
+                                        </li>
+                                        <li class="list-inline-item seprate">
+                                            <span>/</span>
+                                        </li>
+                                        <li class="list-inline-item">Dashboard</li>
+                                    </ul>
+                                </div>
+                                <form class="au-form-icon--sm" action="" method="post">
+                                    <input class="au-input--w300 au-input--style2" type="text" placeholder="Search for datas &amp; reports...">
+                                    <button class="au-btn--submit2" type="submit">
+                                        <i class="zmdi zmdi-search"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END BREADCRUMB-->
+
+            <!-- WELCOME-->
+            <section class="welcome p-t-10">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="title-4">Welcome back
+                                <span>John!</span>
+                            </h1>
+                            <hr class="line-seprate">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END WELCOME-->
+
+            <!-- DATA TABLE-->
+            <section class="p-t-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-5 m-b-35">Danh sách sản phẩm</h3>
+                            <div class="table-data__tool">
+                                <div class="table-data__tool-left">
+                                    <div class="rs-select2--light rs-select2--md">
+                                        <select class="js-select2" name="property">
+                                            <option selected="selected">All Properties</option>
+                                            <option value="">Option 1</option>
+                                            <option value="">Option 2</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                    <div class="rs-select2--light rs-select2--sm">
+                                        <select class="js-select2" name="time">
+                                            <option selected="selected">Today</option>
+                                            <option value="">3 Days</option>
+                                            <option value="">1 Week</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                    <button class="au-btn-filter">
+                                        <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <a href="admin/addProduct" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>add item</a>
+                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                        <select class="js-select2" name="type">
+                                            <option selected="selected">Export</option>
+                                            <option value="">Option 1</option>
+                                            <option value="">Option 2</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive table-responsive-data2" style="overflow:auto;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>   
+                                            <th class="w150">Ngày</th>        
+                                            <th  class="w200">Tên sản phẩm</th>
+                                            <th  class="w150">Thương hiệu</th>
+                                            <th  class="w100">Xuất xứ</th>
+                                            <th  class="w100">Giới tính</th>
+                                            <th  class="w200">Máy</th>
+                                            <th  class="w200">Chất liệu mặt</th>
+                                            <th  class="w200">Chất liệu dây</th>
+                                            <th  class="w100">Số lượng</th>                                           
+                                            <th  class="w150">Đơn giá</th>
+                                            <th  class="w150">Ảnh</th>
+                                            <th  class="w300">Mô tả</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% data.forEach(function(product){ %>
+                                        <tr class="tr-shadow">                                           
+                                            <td><%= moment(product.createdAt).format('DD/MM/YYYY HH:mm:ss') %></td>
+                                            <td><%= product.name%></td>
+                                            <td><%= product.thuonghieu %></td>                                           
+                                            <td><%= product.xuatxu %></td>
+                                            <td><%=  product.loai %></td>
+                                            <td><%=  product.may %></td>
+                                            <td><%=  product.kinh %></td>
+                                            <td><%=  product.day %></td>
+                                            <td><%=  product.soluong %></td>
+                                            <td><%=  product.dongia %></td>
+                                            <td><%=  product.image %></td>
+                                            <td><%=  product.decribe %></td>
+                                            <td>
+                                                <div class="table-data-feature">                                                   
+                                                    <a href="/admin/updateProduct/<%= product._id%>" class="item" title="Edit" data-toggle="tooltip" data-placement="top"><i class="zmdi zmdi-edit"></i></a>
+                                                    <a  onClick="return Delete('Bạn có chắc chắn muốn xóa sản phẩm này không?);"
+                                                            href="/xoa/<%= product._id%>"
+                                                         class="item" title="Delete" data-toggle="tooltip" data-placement="top"><i class="zmdi zmdi-delete"></i></a>
+                                                    <a href="#" class="item" title="More" data-toggle="tooltip" data-placement="top"><i class="zmdi zmdi-more"></i></a>                                               
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="spacer"></tr>
+                                        <tr class="spacer"></tr>
+                                        <%}) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- END DATA TABLE-->
+<% include admin/footerAdmin %>

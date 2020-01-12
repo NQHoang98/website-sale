@@ -1,0 +1,93 @@
+<% include ./headerAdmin %>
+    <div class="page-content--bgf7" >
+        <section class="au-breadcrumb2">
+        <h2 style="text-align:center; margin-bottom:35px;">Sửa sản phẩm</h2>
+            <% data.forEach(function(product){ %>
+            <div class="container" style="width: 70%; background: #eff1d6;">
+                
+                <form action="/admin/updateProduct/<%= product._id%>" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Tên sản phẩm:</label>
+                                <input type="text" name="name" value="<%= product.name %>" id="" class="form-control" placeholder="" aria-describedby="helpId"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Thương hiệu</label>
+                                <select  class="form-control" name="thuonghieu" value="<%= product.thuonghieu%>" id="" >>
+                                    <option value="OP" <% if(product.thuonghieu=="OP"){%> <%= "selected"%> <%}%> >OP</option>
+                                    <option value="Seiko" <% if(product.thuonghieu=="Seiko"){%> <%= "selected"%> <%}%> >Seiko</option>
+                                    <option value="G-shock" <% if(product.thuonghieu=="G-shock"){%> <%= "selected"%> <%}%>>G-shock</option>
+                                    <option value="Casio" <% if(product.thuonghieu=="Casio"){%> <%= "selected"%> <%}%>>Casio</option>
+                                    <option value="Doxa" <% if(product.thuonghieu=="Doxa"){%> <%= "selected"%> <%}%>>Doxa</option>
+                                    <option value="Candino" <% if(product.thuonghieu=="Cadino"){%> <%= "selected"%> <%}%>>Candino</option>  
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Xuất xứ:</label>
+                                <input type="text" name="xuatxu" value="<%= product.xuatxu %>" id="" class="form-control" placeholder="" aria-describedby="helpId"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Loại máy:</label>
+                                <select class="form-control" name="loai"  id="">
+                                    <option value="Nam" <% if(product.loai=="Nam"){%> <%= "selected" %> <%}%> >Nam</option>
+                                    <option value="Nữ"  <% if(product.loai=="Nữ"){%> <%=  "selected" %> <%}%> >Nữ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Máy</label>
+                                <select class="form-control" name="may" id="">
+                                    <option value="PIN" <% if(product.may=="PIN"){%> <%= "selected"%> <%}%>>PIN</option>
+                                    <option value="Automatic"  <% if(product.may=="Automatic"){%> <%=  "selected" %> <%}%>>Automatic(Tự động)</option>
+                                    <option value="HandleWingding"  <% if(product.may=="HandleWingding"){%> <%=  "selected" %> <%}%>>HandleWinding(Lên cót bằng tay)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Chất liệu kính</label>
+                                <select class="form-control" name="kinh" id="">
+                                    <option value="Sapphire(Chống trầy xước)" <% if(product.kinh=="Sapphire(Chống trầy xước)"){%> <%=  "selected" %> <%}%> >Sapphire(Chống trầy xước)</option>
+                                    <option value="Kính cứng" <% if(product.kinh=="Kính cứng"){%> <%=  "selected" %> <%}%>>Kính cứng</option>
+                                    <option value="Kính mica(Kính nhựa tổng hợp)" <% if(product.kinh=="Kính mica(Kính nhựa tổng hợp)"){%> <%=  "selected" %> <%}%>>Kính mica(Kính nhựa tổng hợp)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Chất liệu dây</label>
+                                <select class="form-control" name="day" selectedValue="<%= product.day %>" id="">
+                                    <option value="Dây da chính hãng" <% if(product.day=="Dây da chính hãng"){%> <%=  "selected" %> <%}%>>Dây da chính hãng</option>
+                                    <option value="Dây thép không gỉ" <% if(product.day=="Dây thép không gỉ"){%> <%=  "selected" %> <%}%>>Dây thép không gỉ</option>
+                                    <option value="Dây hợp kim titanium" <% if(product.day=="Dây hợp kim titanium"){%> <%=  "selected" %> <%}%>>Dây hợp kim Titanium</option>
+                                    <option value="Dây inox" <% if(product.day=="Dây inox"){%> <%=  "selected" %> <%}%>>Dây inox</option>
+                                    <option value="Dây vải" <% if(product.day=="Dây vải"){%> <%=  "selected" %> <%}%>>Dây vải</option>
+                                    <option value="Dây nhựa/caosu" <% if(product.day=="Dây nhựa/caosu"){%> <%=  "selected" %> <%}%>>Dây nhựa/caosu</option>
+                                </select>
+                            </div>                           
+                            <div class="form-group">
+                                <label for="">Số lượng:</label>
+                                <input type="text" name="soluong" value="<%= product.soluong %>" id="" class="form-control" placeholder="" aria-describedby="helpId"/>
+                                </div>
+                                <div class="form-group">
+                                <label for="">Đơn giá:</label>
+                                <input type="text" name="dongia" value="<%= product.dongia %>" id="" class="form-control" placeholder="" aria-describedby="helpId"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Mô tả:</label>
+                                <input type="text" name="decribe" id="" value="<%= product.decribe %>" class="form-control" placeholder="" aria-describedby="helpId"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Ảnh sản phẩm</label>
+                                <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId"/>
+                            </div>
+                        </div>
+                    </div>
+                <button type="submit" class="btn btn-primary">Gui thong tin</button>
+                </form>
+                    
+            </div>
+            <% }) %>
+        </section>
+    </div>
+<% include ./footerAdmin %>

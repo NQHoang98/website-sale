@@ -1,0 +1,91 @@
+<% include ./headerAdmin %>
+    <div class="page-content--bgf7" >
+        <section class="au-breadcrumb2">
+        <h2 style="text-align:center; margin-bottom:35px;">Thêm sản phẩm</h2>
+            <div class="container" style="width: 70%; background: #eff1d6;">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Tên sản phẩm:</label>
+                                <input type="text" name="name" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Thương hiệu</label>
+                                <select  class="form-control" name="thuonghieu" id="">
+                                    <option>OP</option>
+                                    <option>Seiko</option>
+                                    <option>G-shock</option>
+                                    <option>Casio</option>
+                                    <option>Doxa</option>
+                                    <option>Candino</option>
+                                    <option>Longines</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Xuất xứ:</label>
+                                <input type="text" name="xuatxu" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Loại máy:</label>
+                                <select class="form-control" name="loai" id="">
+                                    <option>Nam</option>
+                                    <option>Nữ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Máy</label>
+                                <select class="form-control" name="may" id="">
+                                    <option>PIN</option>
+                                    <option>Automatic(Tự động)</option>
+                                    <option>HandleWinding(Lên cót bằng tay)</option>
+                                </select>
+                            </div>
+                        </div>
+                           
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Chất liệu kính</label>
+                                <select class="form-control" name="kinh" id="">
+                                    <option>Sapphire(Chống trầy xước)</option>
+                                    <option>Kính cứng</option>
+                                    <option>Kính mica(Kính nhựa tổng hợp)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Chất liệu dây</label>
+                                <select class="form-control" name="day" id="">
+                                    <option>Dây da chính hãng</option>
+                                    <option>Dây thép không gỉ</option>
+                                    <option>Dây hợp kim Titanium</option>
+                                    <option>Dây inox</option>
+                                    <option>Dây vải</option>
+                                    <option>Dây nhựa/caosu</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="">Số lượng:</label>
+                                <input type="text" name="soluong" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Đơn giá:</label>
+                                <input type="text" name="dongia" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Mô tả:</label>
+                                <input type="text" name="decribe" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Ảnh sản phẩm</label>
+                                <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gui thong tin</button>                  
+                </form>
+            </div>
+        </section>
+    </div>
+<% include ./footerAdmin %>
