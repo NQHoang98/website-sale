@@ -16,7 +16,7 @@
         "md5": "^2.2.1",
         "moment": "^2.24.0",
         "mongodb": "^3.4.1",
-        "mongoose": "^4.13.20",
+        "mongoose": "^4.13.21",
         "mongose": "0.0.2-security",
         "morgan": "~1.9.1",
         "multer": "^1.4.2",
